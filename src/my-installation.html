@@ -1,0 +1,47 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../pluggins/loader.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-installation">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+      <div class="center">
+      <page-title page="Installation"></page-title>
+      
+      <tutorial-post title="Samsung Checklist" content="If this is your first time removing FRP/Google lock from a Samsung phone, make certain to install the software listed. Without every one of this files you won't be able to complete the removal."></tutorial-post>
+      
+      <tutorial-step number="1" body="Install the Samsung Drivers for Mobile Phones"></tutorial-step>     
+      
+      <file-download file_name="Samsung Drivers for Mobile Phones" url="http://slc.lo4d.com/files/samsung-usb-driver-for-mobile-phones/SAMSUNG_USB_Driver_for_Mobile_Phones.exe"></file-download>
+      
+      <tutorial-step number="2" body="Install RealTerm and any other neccessary library."></tutorial-step>
+      
+      <file-download file_name="RealTerm" url="/src/downloads/samsung.exe"></file-download>
+      
+      <file-download file_name=".NET Framework 4.0" url="/src/downloads/samsung.exe"></file-download>
+          
+      </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-installation',
+    });
+  </script>
+</dom-module>

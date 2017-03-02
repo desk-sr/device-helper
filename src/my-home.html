@@ -1,0 +1,59 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../pluggins/loader.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-home">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+    
+    <div class="center">
+        
+        <page-title page="Home" update="2/28/2017"></page-title>
+        <div class="card">
+            <h1>Site Update - 2/28/2017</h1>
+            <p><b>-Tutorial Update</b><br/>
+                *Made a coherent tutorial for the Samsung Galaxy S6 + S7 + Edge. (**Needs finish)<br/>
+                <br/>
+                <b>-Site UI Update</b><br/>
+                *Organized menus and erased dead pages.<br/>
+                *Renamed FRP section to Tools.
+                
+            </p>
+        </div>
+        
+        <div class="card">
+            <h1>Current Progress - 2/26/2017</h1>
+            <p><b>-Devices Section</b><br/>
+                *Added Device Information and Variants: Google Nexus 5/5x,Google Nexus 6/6P, Google Pixel/XL, LG G5, LG V10, LG V20, HTC One M8, HTC One M9, HTC 10, Samsung Galaxy Note, S3, S4, S4 Active, S5, S5 Mini, S5 Active, S6, S6 Edge, S6 Edge Plus, S7,S7 Edge.<br/>
+                *Added Water Sensor Location: Samsung Galaxy S3, S4, S5, S5 Mini, S6 Edge, S6 Edge Plus, S7, S7 Edge.<br/>
+                *Added Restore Instructions: Samsung Galaxy S7, S7 Edge.<br/>
+                <br/>
+                <b>-FRP Section</b><br/>
+                *Remains under construction, there is some info in there but it is not ready to go.
+            </p>
+        </div>      
+        
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-home',
+    });
+  </script>
+</dom-module>

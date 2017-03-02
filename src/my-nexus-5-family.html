@@ -1,0 +1,37 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../pluggins/loader.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-nexus-5-family">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+    
+    <div class="center">
+        
+        <page-title page="Google Nexus 5" update="2/26/2017"></page-title>
+        
+        <device-info devicepicture="google-nexus-5" devicename="Google Nexus 5" deviceos="5.0 Lollipop, upgradable to 6.0 Marshmallow" devicestorage="16GB, 32GB, no microSD card slot" devicecamera="Pictures at 8MP, Records videos at 1080p" devicememory="2GB" devicebattery="2,300 mAh" devicesize="5.1 inch display, 1080x1920 resolution"></device-info>
+        
+        <device-variants attvariant="n/a" verizonvariant="n/a" tmobilevariant="n/a" sprintvariant="n/a" unlockedvariant="D820 - US, D821 - International" miscvariant="n/a"></device-variants>
+                        
+        <page-title page="Google Nexus 5X" update="2/26/2017"></page-title>
+        
+        <device-info devicepicture="google-nexus-5x" devicename="Google Nexus 5X" deviceos="6.0 Marshmallow, upgradable to 7.0 Nougat" devicestorage="16GB, 32GB, no microSD card slot" devicecamera="Pictures at 12MP, Records videos at 2160p" devicememory="2GB" devicebattery="2,700 mAh" devicesize="5.2 inch display, 1080x1920 resolution"></device-info>
+        
+        <device-variants attvariant="n/a" verizonvariant="n/a" tmobilevariant="n/a" sprintvariant="n/a" unlockedvariant="LG-H790 - US, LH-H791 - International" miscvariant="n/a"></device-variants>
+                
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-nexus-5-family',
+    });
+  </script>
+</dom-module>

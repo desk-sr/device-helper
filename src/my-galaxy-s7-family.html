@@ -1,0 +1,52 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../pluggins/loader.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-galaxy-s7-family">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+    
+    <div class="center">
+        
+        <page-title page="Samsung Galaxy S7" update="2/25/2017"></page-title>
+        
+        <device-info devicepicture="samsung-galaxy-s7" devicename="Samsung Galaxy S7" deviceos="6.0 Marshmallow, upgradable to 7.0 Nougat" devicestorage="32GB, 64GB, microSD card slot" devicecamera="Pictures at 12MP, Records videos at 2160p" devicememory="4GB" devicebattery="3,000 mAh" devicesize="5.1 inch display, 1440x2560 resolution"></device-info>
+        
+        <device-variants attvariant="SM-G930A" verizonvariant="SM-G930V" tmobilevariant="SM-G930T" sprintvariant="SM-G930P" unlockedvariant="SM-G930F, SM-G930U, Dual Sim SM-G930FD" miscvariant="SM-G930R - US Cellular, SM-G930AZ - Cricket, SM-G930VL - Straight Talk/TracFone, SM-G930T1 - Metro PCS, SM-G930W8 - Bell Canada/Rogers"></device-variants>
+        
+        
+        
+        <page-title page="Samsung Galaxy S7 Edge" update="2/25/2017"></page-title>
+        
+        <device-info devicepicture="samsung-galaxy-s7-edge" devicename="Samsung Galaxy S7 Edge" deviceos="6.0 Marshmallow, upgradable to 7.0 Nougat" devicestorage="32GB, 64GB, 128GB, microSD card slot" devicecamera="Pictures at 12MP, Records videos at 2160p" devicememory="4GB" devicebattery="3,600 mAh" devicesize="5.5 inch display, 1440x2560 resolution"></device-info>
+        
+        <device-variants attvariant="SM-G935A" verizonvariant="SM-G935V" tmobilevariant="SM-G935T" sprintvariant="SM-G935P" unlockedvariant="SM-G935O, SM-G935F, SM-G935U, Dual Sim SM-G935FD" miscvariant="SM-G935R - US Cellular, SM-G930W8 - Bell Canada"></device-variants>
+        
+        
+        
+        <center>
+        <div class="card">
+            <table class="tg" style="width: 100%;">
+                <tr>
+                    <th style="padding: 0px;width: 50%;"><youtube-video video="ZfsUQgfZ-_4" title="Water Sensor Location"></youtube-video></th>
+                    <th style="padding: 0px; width: 50%;"><youtube-video title="Restore Firmware with Odin" video="7SK3IMprKVQ"></youtube-video></th>
+                </tr>
+            </table>
+        </div>
+        </center>
+        
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-galaxy-s7-family',
+    });
+  </script>
+</dom-module>
