@@ -1,9 +1,9 @@
-<snippet>
-  <content><![CDATA[
-# ${1:Project Name}
-TODO: Write a project description
+# DESK-SR
+
 ## Installation
-TODO: Describe the installation process
+1. You need node.js installed on your development system.
+2. You need to install polymer-cli globally. "npm -g polymer-cli".
+3. Download the project from github. To launch it simply travel to the root folder of the project in command line. Type the following "polymer serve --open".
 ## Usage
 TODO: Write usage instructions
 ## Contributing
@@ -18,6 +18,3 @@ TODO: Write history
 TODO: Write credits
 ## License
 TODO: Write license
-]]></content>
-  <tabTrigger>readme</tabTrigger>
-</snippet>
