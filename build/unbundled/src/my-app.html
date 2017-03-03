@@ -16,6 +16,7 @@
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="my-icons.html">
 
 </head><body><dom-module id="my-app">
@@ -66,6 +67,12 @@
             width: 96%;
             --paper-button-ink-color: #8BC34A;
         }
+        paper-fab {
+            position:absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: #FF9800;
+        }
 
     </style>
 
@@ -89,14 +96,14 @@
                 <iron-collapse id="collapsegoogle">
                     
                     <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-                        
+                        <center>
                         <a name="nexus-5-family" href="/nexus-5-family">Google Nexus 5 Family</a>
                         
                         <a name="nexus-6-family" href="/nexus-6-family">Google Nexus 6 Family</a>
                         
                         <a name="pixel-family" href="/pixel-family">Google Pixel 
                             Family</a>
-                        
+                        </center>
                     </iron-selector>
                 
                 </iron-collapse>
@@ -106,9 +113,9 @@
                 <iron-collapse id="collapsehtc">
                     
                     <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-                        
+                        <center>
                         <a name="htc-family" href="/htc-family">HTC Family</a>
-                    
+                        </center>
                     </iron-selector>
                 
                 </iron-collapse>
@@ -118,9 +125,9 @@
                 <iron-collapse id="collapselg">
                     
                     <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-                        
+                        <center>
                         <a name="lg-family" href="/lg-family">LG Family</a>
-                
+                        </center>
                     </iron-selector>
                 
                 </iron-collapse>
@@ -130,7 +137,7 @@
                 <iron-collapse id="collapsesamsung">
                     
                     <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-                    
+                        <center>
                         <a name="galaxy-note-family" href="/galaxy-note-family">Samsung Galaxy Note Family</a>
                     
                         <a name="galaxy-s3s4-family" href="/galaxy-s3s4-family">Samsung Galaxy S3 S4 Family</a>
@@ -140,7 +147,7 @@
                         <a name="galaxy-s6-family" href="/galaxy-s6-family">Samsung Galaxy S6 Family</a>
                     
                         <a name="galaxy-s7-family" href="/galaxy-s7-family">Samsung Galaxy S7 Family</a>
-                
+                        </center>
                     </iron-selector>
                 
                 </iron-collapse>
@@ -153,15 +160,15 @@
                 
                 <iron-collapse id="collapsefrp">
                     <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+                        <center>
                         <a name="frps6s7edge" href="/frps6s7edge">Galaxy S6 + Edge, S7 + Edge</a>
-                
+                        </center>
                     </iron-selector>
                 
                 </iron-collapse>
 
             </div>
         </iron-pages>
-        
         
       </app-drawer>
         
@@ -201,8 +208,11 @@
               
           <my-404 name="404"></my-404>
         </iron-pages>
+          
       </app-header-layout>
+        
     </app-drawer-layout>
+      <paper-fab><a href="https://github.com/desk-sr/device-helper"></a></paper-fab>
   </template>
 
   <script>Polymer({is:"my-app",properties:{page:{type:String,reflectToAttribute:!0,observer:"_pageChanged"},selected:{value:0}},observers:["_routePageChanged(routeData.page)"],_routePageChanged:function(e){this.page=e||"home",this.$.drawer.persistent||this.$.drawer.close()},_pageChanged:function(e){var t=this.resolveUrl("my-"+e+".html");this.importHref(t,null,this._showPage404,!0)},_showPage404:function(){this.page="404"},togglegoogle:function(){this.$.collapsegoogle.toggle()},togglehtc:function(){this.$.collapsehtc.toggle()},togglelg:function(){this.$.collapselg.toggle()},togglesamsung:function(){this.$.collapsesamsung.toggle()},togglefrp:function(){this.$.collapsefrp.toggle()}});</script>

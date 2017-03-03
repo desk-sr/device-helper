@@ -25,7 +25,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="my-icons.html">
+<link href="https://fonts.googleapis.com/css?family=Monda|Permanent+Marker" rel="stylesheet">
+
 
 <dom-module id="my-app">
   <template>
@@ -35,6 +38,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         --app-secondary-color: #000000;
 
         display: block;
+          font-family: 'Monda', sans-serif;
       }
 
       app-header {
@@ -46,10 +50,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       app-header paper-icon-button {
         --paper-icon-button-ink-color: white;
+
       }
 
       .drawer-list {
         margin: 0 20px;
+
       }
 
       .drawer-list a {
@@ -58,22 +64,37 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         text-decoration: none;
         color: var(--app-secondary-color);
         line-height: 40px;
+
       }
 
       .drawer-list a.iron-selected {
         color: #8BC34A;
         font-weight: bold;
+
       }
         paper-tabs {
             --paper-tabs-selection-bar-color: #FF9800;
+
         }
         paper-tab {
             --paper-tab-ink: #FF9800;
             color: white;
+
         }
         paper-button {
             width: 96%;
             --paper-button-ink-color: #8BC34A;
+
+            
+        }
+        paper-fab {
+            position:absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: #FF9800;
+        }
+        .special {
+            font-family: 'Permanent Marker', cursive;
         }
 
     </style>
@@ -176,7 +197,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </div>
         </iron-pages>
         
-        
       </app-drawer>
         
       <!-- Main content -->
@@ -186,9 +206,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <app-toolbar>
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
             <div main-title>Device Helper</div>
-              <div style="float: right;">
+              <div class="special" style="float: right;">
                   <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-              <a style="color: white;" name="home" href="/home">Home</a>
+              <a style="color: white;" name="home" href="/home">DESK-SR</a>
               
               </iron-selector></div>
           </app-toolbar>
@@ -219,8 +239,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <!-- 404 -->  
           <my-404 name="404"></my-404>
         </iron-pages>
+          
       </app-header-layout>
+        
     </app-drawer-layout>
+    <a href="https://github.com/desk-sr/device-helper/tree/development"><paper-fab src="../images/github.png"  mini></paper-fab> </a>
   </template>
 
   <script>
@@ -274,6 +297,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       togglefrp: function() {
       this.$.collapsefrp.toggle();
       },
+
     });
   </script>
 </dom-module>
