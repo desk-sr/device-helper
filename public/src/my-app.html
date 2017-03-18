@@ -1,0 +1,337 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-query.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="my-icons.html">
+<link rel="import" href="../pluggins/loader.html">
+<link href="https://fonts.googleapis.com/css?family=Monda|Permanent+Marker" rel="stylesheet">
+
+
+<dom-module id="my-app">
+  <template>
+      
+      
+        <firebase-app
+          id="desk-sr"
+          auth-domain="desk-sr.firebaseapp.com"
+          database-url="https://desk-sr.firebaseio.com/"
+          api-key="AIzaSyAwuzWVLbHg16q1R_SdD6M2R-kXmfOeW7s">
+        </firebase-app>
+<firebase-auth user="{{user}}"></firebase-auth>
+    <style>
+      :host {
+        --app-primary-color: #212121;
+        --app-secondary-color: #000000;
+
+        display: block;
+          font-family: 'Monda', sans-serif;
+      }
+
+      app-header {
+        color: #fff;
+        background-color: var(--app-primary-color);
+      }
+        app-toolbar {
+            background-color: var(--app-primary-color);
+        }
+      app-header paper-icon-button {
+        --paper-icon-button-ink-color: white;
+
+      }
+
+      .drawer-list {
+        margin: 0 20px;
+
+      }
+
+      .drawer-list a {
+        display: block;
+        padding: 0 16px;
+        text-decoration: none;
+        color: var(--app-secondary-color);
+        line-height: 40px;
+
+      }
+
+      .drawer-list a.iron-selected {
+        color: #8BC34A;
+        font-weight: bold;
+
+      }
+        paper-tabs {
+            --paper-tabs-selection-bar-color: #FF9800;
+
+        }
+        paper-tab {
+            --paper-tab-ink: #FF9800;
+            color: white;
+
+        }
+        paper-button {
+            width: 96%;
+            --paper-button-ink-color: #8BC34A;
+
+            
+        }
+        paper-fab {
+            position:absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: #FF9800;
+        }
+        .special {
+            font-family: 'Permanent Marker', cursive;
+        }
+
+    </style>
+
+    <app-location route="{{route}}"></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
+    <app-drawer-layout fullbleed force-narrow>
+      <!-- Drawer on the left -->
+      <app-drawer id="drawer">
+        <app-toolbar>
+            <paper-tabs style="width: 100%;" selected="{{selected}}">
+                <paper-tab>Devices</paper-tab>
+                <paper-tab>Tools</paper-tab>
+            </paper-tabs>
+        </app-toolbar>
+          
+        <iron-pages selected="{{selected}}">
+            <div id="devices-content">
+                
+                <paper-button on-click="togglegoogle">Google Devices</paper-button>
+                
+                <iron-collapse id="collapsegoogle">
+                    
+                    <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+                        <center>
+                        <a name="nexus-5-family" href="/nexus-5-family">Google Nexus 5 Family</a>
+                        
+                        <a name="nexus-6-family" href="/nexus-6-family">Google Nexus 6 Family</a>
+                        
+                        <a name="pixel-family" href="/pixel-family">Google Pixel 
+                            Family</a>
+                        </center>
+                    </iron-selector>
+                
+                </iron-collapse>
+                
+                <paper-button on-click="togglehtc">HTC Devices</paper-button>
+                
+                <iron-collapse id="collapsehtc">
+                    
+                    <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+                        <center>
+                        <a name="htc-family" href="/htc-family">HTC Family</a>
+                        </center>
+                    </iron-selector>
+                
+                </iron-collapse>
+                
+                <paper-button on-click="togglelg">LG Devices</paper-button>
+                
+                <iron-collapse id="collapselg">
+                    
+                    <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+                        <center>
+                        <a name="lg-family" href="/lg-family">LG Family</a>
+                        </center>
+                    </iron-selector>
+                
+                </iron-collapse>
+                
+                <paper-button on-click="togglesamsung">Samsung Devices</paper-button>
+                
+                <iron-collapse id="collapsesamsung">
+                    
+                    <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+                        <center>
+                            <a name="galaxy-note-family" href="/galaxy-note-family">Samsung Galaxy Note Family</a>
+                            <a name="galaxy-s3s4-family" href="/galaxy-s3s4-family">Samsung Galaxy S3 S4 Family</a>
+                            <a name="galaxy-s5-family" href="/galaxy-s5-family">Samsung Galaxy S5 Family</a>
+                            <a name="galaxy-s6-family" href="/galaxy-s6-family">Samsung Galaxy S6 Family</a>
+                            <a name="galaxy-s7-family" href="/galaxy-s7-family">Samsung Galaxy S7 Family</a>
+                        </center>
+                    </iron-selector>
+                
+                </iron-collapse>
+
+            </div>
+            
+            <div id="frp-content">
+                
+                <paper-button on-click="togglefrp">FRP Tutorials</paper-button>
+                
+                <iron-collapse id="collapsefrp">
+                    <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+                        <center>
+                            <a name="frphtc" href="/frphtc">HTC 10</a>
+                            <a name="frps6s7edge" href="/frps6s7edge">Galaxy S6 + Edge, S7 + Edge</a>
+                        </center>
+                    </iron-selector>
+                        
+                </iron-collapse>
+                
+                        <paper-button on-click="toggleevaltools">Evaluations Tools</paper-button>
+                
+                <iron-collapse id="collapseevaltools">
+                    <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+                        <center>
+                            <a name="dashboard" href="/dashboard">Dashboard</a>
+                            <a name="barcode" href="/barcode">Barcode Ganerator</a>
+                        </center>
+                    </iron-selector>
+                        
+                </iron-collapse> 
+
+                
+                    
+            </div>
+        </iron-pages>
+        
+      </app-drawer>
+        
+      <!-- Main content -->
+      <app-header-layout has-scrolling-region>
+
+        <app-header condenses reveals effects="waterfall">
+          <app-toolbar>
+            <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
+            <div main-title>Device Helper</div>
+              <div style="float: right;"><fire-login></fire-login></div>
+              <div class="special" style="float: right;">
+                  <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+              <a style="color: white;" name="home" href="/home">DESK-SR</a>
+              
+              </iron-selector></div>
+              
+          </app-toolbar>
+        </app-header>
+
+        <iron-pages
+            selected="[[page]]"
+            attr-for-selected="name"
+            fallback-selection="404"
+            role="main">
+            <!-- Home is sahred by both menus -->
+          <my-home name="home"></my-home>
+            <!-- Devices menu -->
+          <my-nexus-5-family name="nexus-5-family"></my-nexus-5-family>
+          <my-nexus-6-family name="nexus-6-family"></my-nexus-6-family>
+          <my-pixel-family name="pixel-family"></my-pixel-family>
+          <my-htc-family name="htc-family"></my-htc-family>
+          <my-lg-family name="lg-family"></my-lg-family>
+          <my-galaxy-s3s4-family name="galaxy-s3s4-family"></my-galaxy-s3s4-family>
+          <my-galaxy-s5-family name="galaxy-s5-family"></my-galaxy-s5-family>
+          <my-galaxy-s6-family name="galaxy-s6-family"></my-galaxy-s6-family>
+          <my-galaxy-s7-family name="galaxy-s7-family"></my-galaxy-s7-family>
+          <my-galaxy-note-family name="galaxy-note-family"></my-galaxy-note-family>
+            <!-- FRP Menu -->
+          <my-installation name="installation"></my-installation>
+          <my-software name="software"></my-software>
+            <my-frphtc name="frphtc"></my-frphtc>
+          <my-frps6s7edge name="frps6s7edge"></my-frps6s7edge>
+            <my-dashboard name="dashboard"></my-dashboard>
+            <my-barcode name="barcode"></my-barcode>
+            <!-- 404 -->  
+          <my-404 name="404"></my-404>
+        </iron-pages>
+          
+      </app-header-layout>
+        
+    </app-drawer-layout>
+    <a href="https://github.com/desk-sr/device-helper/tree/development"><paper-fab src="../images/github.png"  mini></paper-fab> </a>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-app',
+
+      properties: {
+        page: {
+          type: String,
+          reflectToAttribute: true,
+          observer: '_pageChanged',
+        },
+        selected: {
+          value: 0
+        },
+      },
+
+      observers: [
+        '_routePageChanged(routeData.page)',
+      ],
+
+      _routePageChanged: function(page) {
+        this.page = page || 'home';
+
+        if (!this.$.drawer.persistent) {
+          this.$.drawer.close();
+        }
+      },
+
+      _pageChanged: function(page) {
+        // Load page import on demand. Show 404 page if fails
+        var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
+        this.importHref(resolvedPageUrl, null, this._showPage404, true);
+      },
+
+      _showPage404: function() {
+        this.page = '404';
+      },
+      togglegoogle: function() {
+      this.$.collapsegoogle.toggle();
+      },
+      togglehtc: function() {
+      this.$.collapsehtc.toggle();
+      },
+      togglelg: function() {
+      this.$.collapselg.toggle();
+      },
+      togglesamsung: function() {
+      this.$.collapsesamsung.toggle();
+      },
+      togglefrp: function() {
+      this.$.collapsefrp.toggle();
+      },
+      toggleevaltools: function() {
+      this.$.collapseevaltools.toggle();
+      },
+
+    });
+  </script>
+</dom-module>

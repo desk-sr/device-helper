@@ -1,0 +1,34 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/my-app.html",
+  "fragments": [
+    "src/my-home.html",
+    "src/my-installation.html",
+    "src/my-software.html",
+    "src/my-frphtc.html",
+    "src/my-frps6s7edge.html",
+    "src/my-404.html",
+    "src/my-galaxy-note-family.html",
+    "src/my-galaxy-s7-family.html",
+    "src/my-galaxy-s6-family.html",
+    "src/my-galaxy-s5-family.html",
+    "src/my-galaxy-s3s4-family.html",
+    "src/my-htc-family.html",
+    "src/my-lg-family.html",
+    "src/my-nexus-5-family.html",
+    "src/my-nexus-6-family.html",
+    "src/my-pixel-family.html",
+    "src/my-dashboard.html",
+    "src/my-barcode.html"
+  ],
+  "sourceGlobs": [
+    "src/**/*",
+    "images/**/*",
+    "downloads/**/*",
+    "bower.json"
+  ],
+  "includeDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/webcomponents-lite.min.js"
+  ]
+}

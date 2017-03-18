@@ -1,0 +1,38 @@
+<base href="https://cdn.rawgit.com/download/polymer-cdn/1.5.0/lib/">
+<script src="https://cdn.jsdelivr.net/jsbarcode/3.5.8/JsBarcode.all.min.js"></script>
+               
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+
+<link rel="import" href="iron-icon/iron-icon.html">
+<link rel="import" href="iron-icons/iron-icons.html">
+<link rel="import" href="iron-image/iron-image.html">
+<link rel="import" href="iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="iron-flex-layout/classes/iron-flex-layout.html">
+
+<link rel="import" href="paper-button/paper-button.html">
+<link rel="import" href="paper-input/paper-input.html">
+<link rel="import" href="paper-checkbox/paper-checkbox.html">
+<link rel="import" href="paper-material/paper-material.html">
+<link rel="import" href="paper-styles/paper-styles.html">
+<link rel="import" href="paper-styles/classes/global.html">
+
+
+<style is="custom-style">
+  :root {
+
+
+  }
+</style>
+<center>
+  <svg class="barcode" jsbarcode-format="code128">
+</svg>
+  <paper-input style="max-width: 300px;" id="input" label="44 Character Limit" on-keydown="checkForEnter"></paper-input>
+  <paper-button onclick="generate()">Generate Barcode</paper-button>
+  <script>
+   JsBarcode(".barcode", "DESK-SR");
+   function generate() {
+                JsBarcode(".barcode", document.getElementById("input").value);
+     document.getElementById("input").value = null;
+            }
+  </script>
+</center>

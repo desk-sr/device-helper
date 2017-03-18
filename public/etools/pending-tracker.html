@@ -1,0 +1,94 @@
+-<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-query.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+
+
+<dom-module id="pending-tracker">
+    <template>
+        <style>
+        .card {
+        margin: 24px;
+        padding: 16px;
+        color: #757575;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+            .card-table {
+        color: #757575;
+        border-radius: 5px;
+        background-color: #8BC34A;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        }
+            .titlep {
+        color: white;
+        }
+        </style>
+        <firebase-auth user="{{user}}"></firebase-auth>
+        
+        <firebase-query
+          id="query"
+          path="users/[[user.uid]]/semi/pending-esn"
+          data="{{offerpendingesn}}">
+        </firebase-query>
+        <center>
+        <div class="card">
+        <div class="card-table"><p class="titlep">Pending ESN Tracker</p></div>
+        <table>
+            <tr>
+                <td><ul id="notes-list">
+                    <template is="dom-repeat" items="[[offerpendingesn]]" as="pending-esn">
+                        <li>
+                            <p class="content">[[pending-esn.content]]</p>
+                        </li>
+                    </template>
+                </ul></td>
+            </tr>
+            <td>
+                <paper-input id="input" label="Offer Number" on-keydown="checkForEnter"></paper-input><br>
+
+                <div id="pending-esn-controls">
+                    <paper-button id="add" on-tap="add">Add</paper-button>
+                </div>
+            </td>
+            <tr>
+            </tr>
+            <tr>
+            </tr>
+        </table>
+        
+</div>
+        </center>
+    </template>
+    
+    <script>
+        Polymer({
+            is: 'pending-tracker',
+            properties: {
+                offerpendingesn: {
+                    type: Object
+                }
+            },
+            add: function() {
+                this.$.query.ref.push({
+                   content: this.$.input.value
+                });
+                this.$.input.value = null;
+            },
+            checkForEnter: function (e) {
+                // check if 'enter' was pressed
+                if (e.keyCode === 13) {
+                    this.$.query.ref.push({
+                   content: this.$.input.value
+                });
+                this.$.input.value = null;
+                }
+            }
+        });
+    </script>
+</dom-module>
