@@ -41,10 +41,15 @@
         <div class="card-table"><p class="titlep">Daily Device Tracker</p></div>
         <table>
             <tr>
-                <td><ul id="notes-list">
+                <td><ul id="notes-list" style="list-style: decimal;">
                     <template is="dom-repeat" items="[[dailydevicetracker]]" as="dailydevice">
                         <li>
-                            <p class="content">[[dailydevice.content]]</p>
+                            <center>
+                            <div>
+                                <p class="content">[[dailydevice.content]]<paper-icon-button icon="clear" style="margion: 0; padding 0;" dailydevice="[[dailydevice]]" on-tap="remove"></paper-icon-button></p>
+                                
+                            </div>
+                            </center>
                         </li>
                     </template>
                 </ul></td>
@@ -88,6 +93,10 @@
                 });
                 this.$.input.value = null;
                 }
+            },
+            remove: function (e){
+                var key = e.currentTarget.dailydevice.$key;
+                this.$.query.ref.child(key).remove();
             }
         });
     </script>

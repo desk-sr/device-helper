@@ -42,9 +42,14 @@
         <table>
             <tr>
                 <td><ul id="notes-list">
-                    <template is="dom-repeat" items="[[offerpendingesn]]" as="pending-esn">
+                    <template is="dom-repeat" items="[[offerpendingesn]]" as="pendingesn">
                         <li>
-                            <p class="content">[[pending-esn.content]]</p>
+                            <center>
+                            <div>
+                                <p class="content">[[pendingesn.content]]<paper-icon-button icon="clear" style="margion: 0; padding 0;" pendingesn="[[pendingesn]]" on-tap="remove"></paper-icon-button></p>
+                                
+                            </div>
+                            </center>
                         </li>
                     </template>
                 </ul></td>
@@ -88,6 +93,10 @@
                 });
                 this.$.input.value = null;
                 }
+            },
+            remove: function (e){
+                var key = e.currentTarget.pendingesn.$key;
+                this.$.query.ref.child(key).remove();
             }
         });
     </script>

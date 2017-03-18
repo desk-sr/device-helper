@@ -41,10 +41,15 @@
         <div class="card-table"><p class="titlep">iCloud Locked Tracker</p></div>
         <table>
             <tr>
-                <td><ul id="notes-list">
-                    <template is="dom-repeat" items="[[offericloudlock]]" as="locked-icloud">
+                <td><ul id="notes-list" style="list-style: decimal;">
+                    <template is="dom-repeat" items="[[offericloudlock]]" as="lockedicloud">
                         <li>
-                            <p class="content">[[locked-icloud.content]]</p>
+                            <center>
+                            <div>
+                                <p class="content">[[lockedicloud.content]]<paper-icon-button icon="clear" style="margion: 0; padding 0;" lockedicloud="[[lockedicloud]]" on-tap="remove"></paper-icon-button></p>
+                                
+                            </div>
+                            </center>
                         </li>
                     </template>
                 </ul></td>
@@ -88,6 +93,10 @@
                 });
                 this.$.input.value = null;
                 }
+            },
+            remove: function (e){
+                var key = e.currentTarget.lockedicloud.$key;
+                this.$.query.ref.child(key).remove();
             }
         });
     </script>
