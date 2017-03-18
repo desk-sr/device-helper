@@ -1,0 +1,58 @@
+<link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<dom-module id="fire-login">
+    <template>
+        <firebase-auth
+          id="auth"
+          user="{{user}}"
+          status-known="{{statusKnown}}"
+          provider="google">
+        </firebase-auth>
+        <style>
+            paper-button {
+                height: 25px;
+                font-family: 'Monda', sans-serif;
+            }
+            p {
+                font-size: 12px;
+            }
+        </style>
+        <table>
+        <tr>
+            
+            <td>
+                <center>
+                    <template is="dom-if" if="[[!user]]">
+                        <p>Hey, dont forget to</p>
+                    </template>
+                    <template is="dom-if" if="[[user]]">
+                        <p>[[user.displayName]]</p> 
+                    </template>
+                </center>
+            </td>
+            <td>
+                <paper-button raised style="background-color: #8BC34A;" on-tap="login" hidden$="[[user]]">Log In</paper-button>
+                <paper-button raised style="background-color: #FF9800;" on-tap="logout" hidden$="[[!user]]">Log Out</paper-button></td>
+        </tr>
+        </table>
+    </template>
+    <script>
+        Polymer({
+            is: 'fire-login',
+            properties: {
+                user: {
+                    type: Object
+                },
+                statusKnown: {
+                    type: Object
+                }
+            },
+            login: function() {
+                return this.$.auth.signInWithPopup();
+            },
+            logout: function() {
+                return this.$.auth.signOut();
+            }
+        });
+    </script>
+</dom-module>

@@ -1,0 +1,113 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="device-variants">
+    <style>         
+        .card-table {
+            width: 80%;
+            margin: 24px;
+            color: white;
+            border-radius: 5px;
+            background-color: #FF9800;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+        }     
+        .tg  {
+            border-collapse:collapse;
+            border-spacing:0;
+            padding-left: 48px;
+            padding-right: 48px;
+            
+            
+        }
+        .tg td {
+            font-family:Arial, sans-serif;
+            font-size:14px;
+            padding:10px 5px;
+            border-style:solid;
+            border-width:2px;
+            overflow:hidden;
+            word-break:normal;
+            
+        }
+        .tg .tg-dev {
+            vertical-align:top;
+            width: 25%;
+            padding-left: 48px;
+            padding-right: 48px;
+        }
+        .tg .tg-content {
+            vertical-align:top;
+            width: 75%;
+            padding-left: 48px;
+            padding-right: 48px;
+        }
+
+    </style>
+  <template>
+    <center>
+        <div class="card-table">
+        <table class="tg">
+            <tr>
+                <td class="tg-dev"><center>Network</center></td>
+                <td class="tg-content"><center>Variant</center></td>
+            </tr>
+            <tr>
+                <td class="tg-dev"><center>ATT</center></td>
+                <td class="tg-content"><center>{{attvariant}}</center></td>
+            </tr>
+            <tr>
+                <td class="tg-dev"><center>Verizon</center></td>
+                <td class="tg-content"><center>{{verizonvariant}}</center></td>
+            </tr>
+            <tr>
+                <td class="tg-dev"><center>TMobile</center></td>
+                <td class="tg-content"><center>{{tmobilevariant}}</center></td>
+            </tr>
+            <tr>
+                <td class="tg-dev"><center>Sprint</center></td>
+                <td class="tg-content"><center>{{sprintvariant}}</center></td>
+            </tr>
+            <tr>
+                <td class="tg-dev"><center>Unlocked</center></td>
+                <td class="tg-content"><center>{{unlockedvariant}}</center></td>
+            </tr>
+            <tr>
+                <td class="tg-dev"><center>Miscelleneous</center></td>
+                <td class="tg-content"><center>{{miscvariant}}</center></td>
+            </tr>
+        </table>
+            </div>
+    </center> 
+  </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "device-variants",
+        properties: {
+            attvariant: {
+                type: String,
+                value: "ATT Variant"
+            },
+            verizonvariant: {
+                type: String,
+                value: "Verizon Variant"
+            },
+            tmobilevariant: {
+                type: String,
+                value: "T-Mobile variant"
+            },
+            sprintvariant: {
+                type: String,
+                value: "Sprint Variant"
+            },
+            unlockedvariant: {
+                type: String,
+                value: "Unlocked variant"
+            },
+            miscvariant: {
+                type: String,
+                value: "Misc Variant"
+            }
+        }
+    });
+</script>
