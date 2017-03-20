@@ -1,0 +1,550 @@
+<base href="https://cdn.rawgit.com/download/polymer-cdn/1.5.0/lib/">
+
+<script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+
+<link rel="import" href="iron-icon/iron-icon.html">
+<link rel="import" href="iron-icons/iron-icons.html">
+<link rel="import" href="iron-image/iron-image.html">
+<link rel="import" href="iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="iron-flex-layout/classes/iron-flex-layout.html">
+
+<link rel="import" href="paper-button/paper-button.html">
+<link rel="import" href="paper-checkbox/paper-checkbox.html">
+<link rel="import" href="paper-material/paper-material.html">
+<link rel="import" href="paper-input/paper-input.html">
+<link rel="import" href="paper-styles/paper-styles.html">
+<link rel="import" href="paper-styles/classes/global.html">
+<link rel="import" href="paper-tabs/paper-tabs.html">
+<link rel="import" href="paper-toggle-button/paper-toggle-button.html">
+
+<style is="custom-style">
+    h1.blue {
+      color: #fff;
+      margin: 16px;
+      padding: 16px;
+      border-radius: 5px;
+      background-color: var(--paper-blue-900);
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      font-family: 'Permanent Marker', cursive;
+      font-size: 72px;
+    }
+  h1.green {
+      color: #fff;
+      margin: 16px;
+      padding: 16px;
+      border-radius: 5px;
+      background-color: var(--paper-green-900);
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      font-family: 'Permanent Marker', cursive;
+      font-size: 72px;
+    }
+  h1.orange {
+      color: #fff;
+      margin: 16px;
+      padding: 16px;
+      border-radius: 5px;
+      background-color: var(--paper-orange-900);
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      font-family: 'Permanent Marker', cursive;
+      font-size: 72px;
+    }
+  h1.red {
+      color: #fff;
+      margin: 16px;
+      padding: 16px;
+      border-radius: 5px;
+      background-color: var(--paper-red-900);
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      font-family: 'Permanent Marker', cursive;
+      font-size: 72px;
+    }
+  paper-button {
+    color: #fff;
+  }
+      
+    paper-checkbox.red {
+        align-self: center;
+        border: 1px solid var(--paper-red-200);
+        padding: 8px 16px;
+   
+        --paper-checkbox-checked-color: var(--paper-red-500);
+        --paper-checkbox-checked-ink-color: var(--paper-red-500);
+        --paper-checkbox-unchecked-color: var(--paper-red-900);
+        --paper-checkbox-unchecked-ink-color: var(--paper-red-900);
+        --paper-checkbox-label-color: var(--paper-red-500);
+        --paper-checkbox-label-checked-color: var(--paper-red-900);
+    }
+
+    paper-checkbox.green {
+        align-self: center;
+        border: 1px solid var(--paper-green-200);
+        padding: 8px 16px;
+
+        --paper-checkbox-checked-color: var(--paper-green-500);
+        --paper-checkbox-checked-ink-color: var(--paper-green-500);
+        --paper-checkbox-unchecked-color: var(--paper-green-900);
+        --paper-checkbox-unchecked-ink-color: var(--paper-green-900);
+        --paper-checkbox-label-color: var(--paper-green-500);
+        --paper-checkbox-label-checked-color: var(--paper-green-900);
+    }
+  
+    paper-checkbox.orange {
+        align-self: center;
+        border: 1px solid var(--paper-orange-200);
+        padding: 8px 16px;
+
+        --paper-checkbox-checked-color: var(--paper-orange-500);
+        --paper-checkbox-checked-ink-color: var(--paper-orange-500);
+        --paper-checkbox-unchecked-color: var(--paper-orange-900);
+        --paper-checkbox-unchecked-ink-color: var(--paper-orange-900);
+        --paper-checkbox-label-color: var(--paper-orange-500);
+        --paper-checkbox-label-checked-color: var(--paper-orange-900);
+    }
+
+    paper-checkbox.blue {
+        align-self: center;
+        border: 1px solid var(--paper-blue-200);
+        padding: 8px 16px;
+    
+        --paper-checkbox-checked-color: var(--paper-blue-500);
+        --paper-checkbox-checked-ink-color: var(--paper-blue-500);
+        --paper-checkbox-unchecked-color: var(--paper-blue-900);
+        --paper-checkbox-unchecked-ink-color: var(--paper-blue-900);
+        --paper-checkbox-label-color: var(--paper-blue-500);
+        --paper-checkbox-label-checked-color: var(--paper-blue-900);
+    }
+
+    paper-checkbox .subtitle {
+        display: block;
+        font-size: 0.8em;
+        margin-top: 2px;
+        max-width: 150px;
+    }
+    .card-table {
+        margin: 24px;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<div>
+    <center>
+        <div class="card-table" style="background-color: #8BC34A; font-size: 22px;"><b>Phone Value Calculator - Under Construction</b></div>
+            <table>
+                <tr>
+                  <td style="width:75%;">
+                    <center>
+                    <h1 id="condition">Condition</h1>
+                    </center>
+                  </td>
+                  <td style="width:25%;">
+                    <center>
+                    <paper-button style="font-size:34px; background-color: #FF9800;" onclick="reset()">Reset</paper-button>
+                    </center>
+                  </td>
+                </tr>
+            </table>
+        <div class="card-table" style="background-color: #8BC34A; "><b>Screen</b> | Appearance and Functionality</div>
+            <table>
+                <tr>
+                    <td>
+                        <paper-checkbox id="screen_n_wear" class="blue" onchange="screenperfect()">
+                        No Wear
+                        <span class="subtitle">
+                        None to light scratches on the screen. 
+                        </span>
+                        </paper-checkbox>
+                    </td>
+                    <td>
+                        <paper-checkbox id="screen_m_wear" class="green" onchange="screenmoderate()">
+                        Moderate Wear
+                        <span class="subtitle">
+                        Light to Moderate scratches on the screen. 
+                        </span>
+                        </paper-checkbox>
+                    </td>
+                    <td>
+                        <paper-checkbox id="screen_h_wear" class="orange" onchange="screenfair()">
+                        Heavy Wear
+                        <span class="subtitle">
+                        Moderate to heavy scratches on the screen. 
+                        </span>
+                        </paper-checkbox>
+                    </td>
+                    <td>
+                        <paper-checkbox id="screen_b" class="red" onchange="screenbroken()">
+                        Broken
+                        <span class="subtitle">
+                        Cracked screen or burn in/white spots.
+                        </span>
+                        </paper-checkbox>
+                    </td>
+                </tr>
+            </table>
+    <div class="card-table" style="background-color: #8BC34A;"><b>Bezel</b> | Appearance and Functionality</div>
+            <table>
+                <tr>
+                    <td>
+                        <paper-checkbox id="bezel_n_wear" class="blue" onchange="bezelperfect()">
+                        No Wear
+                        <span class="subtitle">
+                        None to light scratches on the bezel. 
+                        </span>
+                        </paper-checkbox>
+                    </td>
+                    <td>
+                        <paper-checkbox id="bezel_m_wear" class="green" onchange="bezelmoderate()">
+                        Moderate Wear
+                        <span class="subtitle">
+                        Light to Moderate scratches on the bezel. 
+                        </span>
+                        </paper-checkbox>
+                    </td>
+                    <td>
+                        <paper-checkbox id="bezel_h_wear" class="orange" onchange="bezelfair()">
+                        Heavy Wear
+                        <span class="subtitle">
+                        Moderate to heavy scratches on the bezel. 
+                        </span>
+                        </paper-checkbox>
+                    </td>
+                    <td>
+                        <paper-checkbox id="bezel_b" class="red" onchange="bezelbroken()">
+                        Broken
+                        <span class="subtitle">
+                        Severe bend or crack on the bezel.
+                        </span>
+                        </paper-checkbox>
+                    </td>
+                </tr>
+            </table>
+    <div class="card-table" style="background-color: #8BC34A;"><b>Sound</b> | Quality and Functionality</div>
+            <table>
+                <tr>
+                    <td>
+                        <paper-checkbox id="sound_perfect" class="blue" onchange="soundsperfect()">
+                        Perfect Sound
+                        <span class="subtitle">
+                        All speakers sound perfect. 
+                        </span>
+                        </paper-checkbox>
+                    </td>
+                    <td>
+                        <paper-checkbox id="sound_fair1" class="orange" onchange="soundsfair()">
+                        Low Quality
+                        <span class="subtitle">
+                        The speaker is a little bit low but works. 
+                        </span>
+                        </paper-checkbox>
+                    </td>
+                    <td>
+                        <paper-checkbox id="sound_broken" class="red" onchange="soundsbroken()">
+                        Broken
+                        <span class="subtitle">
+                        One or more of the speakers does not work.
+                        </span>
+                        </paper-checkbox>
+                    </td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <td style="weight: 50%;">
+                        <center>
+                        <div class="card-table" style="background-color: #8BC34A;"><b>WiFi</b> | Performance and Functionality</div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <paper-checkbox id="wifi_perfect" class="blue" onchange="wifisperfect()">
+                                        Perfect Wifi
+                                        <span class="subtitle">
+                                        The WiFi is perfect condition. 
+                                        </span>
+                                        </paper-checkbox>
+                                    </td>
+                                    <td>
+                                        <paper-checkbox id="wifi_broken" class="red" onchange="wifisbroken()">
+                                        Broken
+                                        <span class="subtitle">
+                                        It does not connect or recognize network.
+                                        </span>
+                                        </paper-checkbox>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </td>
+                    <td style="weight: 50%;">
+                        <center>
+                        <div class="card-table" style="background-color: #8BC34A;"><b>Water Sensor</b> | Sensor Condition</div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <paper-checkbox id="water_perfect" class="blue" onchange="watersperfect()">
+                                        Perfect Water Sensor
+                                        <span class="subtitle">
+                                        The water sensor is not triggered.
+                                        </span>
+                                        </paper-checkbox>
+                                    </td>
+                                    <td>
+                                        <paper-checkbox id="water_broken" class="red" onchange="watersbroken()">
+                                        Broken
+                                        <span class="subtitle">
+                                        The Water sensor is triggered.
+                                        </span>
+                                        </paper-checkbox>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </td>
+                </tr>
+        </table>
+        <table>
+                <tr>
+                    <td style="weight: 50%;">
+                        <center>
+                        <div class="card-table" style="background-color: #8BC34A;"><b>Buttons</b> | Performance and Functionality</div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <paper-checkbox id="button_perfect" class="blue" onchange="buttonsperfect()">
+                                        Perfect Buttons
+                                        <span class="subtitle">
+                                        The buttons are in perfect condition. 
+                                        </span>
+                                        </paper-checkbox>
+                                    </td>
+                                    <td>
+                                        <paper-checkbox id="button_broken" class="red" onchange="buttonsbroken()">
+                                        Broken
+                                        <span class="subtitle">
+                                        One or more buttons do not function.
+                                        </span>
+                                        </paper-checkbox>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </td>
+                    <td style="weight: 50%;">
+                        <center>
+                        <div class="card-table" style="background-color: #8BC34A;"><b>Charging</b> | Charging and Battery</div>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <paper-checkbox id="chargin_perfect" class="blue" onchange="charginsperfect()">
+                                        Perfect Charging
+                                        <span class="subtitle">
+                                        Charging and battery are in perfect condition.
+                                        </span>
+                                        </paper-checkbox>
+                                    </td>
+                                    <td>
+                                        <paper-checkbox id="chargin_broken" class="red" onchange="charginsbroken()">
+                                        Broken
+                                        <span class="subtitle">
+                                        Charger port broken or battery below 50%.
+                                        </span>
+                                        </paper-checkbox>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </td>
+                </tr>
+        </table>
+</center>
+</div>
+<script>  
+	var screen_no_wear = document.querySelector("#screen_n_wear");
+  var screen_moderate_wear = document.querySelector("#screen_m_wear");
+  var screen_heavy_wear = document.querySelector("#screen_h_wear");
+  var screen_broken = document.querySelector("#screen_b");
+  var bezel_no_wear = document.querySelector("#bezel_n_wear");
+  var bezel_moderate_wear = document.querySelector("#bezel_m_wear");
+  var bezel_heavy_wear = document.querySelector("#bezel_h_wear");
+  var bezel_broken = document.querySelector("#bezel_b");
+  var sounds_perfect = document.querySelector("#sound_perfect");
+  var sounds_fair = document.querySelector("#sound_fair1");
+  var sounds_broken = document.querySelector("#sound_broken");
+  var wifis_perfect = document.querySelector("#wifi_perfect");
+  var wifis_broken = document.querySelector("#wifi_broken");
+  var waters_perfect = document.querySelector("#water_perfect");
+  var waters_broken = document.querySelector("#water_broken");
+  var buttons_perfect = document.querySelector("#button_perfect");
+  var buttons_broken = document.querySelector("#button_broken");
+  var chargins_perfect = document.querySelector("#chargin_perfect");
+  var chargins_broken = document.querySelector("#chargin_broken");
+  
+  var condition_text= document.querySelector("#condition");
+  
+  screen_no_wear.checked = true;
+  bezel_no_wear.checked = true;
+  sounds_perfect.checked = true;
+  wifis_perfect.checked = true;
+  waters_perfect.checked = true;
+  buttons_perfect.checked = true;
+  chargins_perfect.checked = true;
+  
+    function updatecondition (){
+     if (screen_no_wear.checked === true || bezel_no_wear.checked === true || sounds_perfect.checked === true || wifis_perfect.checked === true || waters_perfect.checked === true || buttons_perfect.checked === true || chargins_perfect.checked === true) {
+         condition_text.innerHTML = "Very Good/Good";
+       	 condition_text.className = "blue";
+         } 
+      	 
+         if (screen_moderate_wear.checked === true || bezel_moderate_wear.checked === true) {
+         condition_text.innerHTML = "Good";
+         condition_text.className = "green";
+         }
+      	 
+         if (screen_heavy_wear.checked === true || bezel_heavy_wear.checked === true || sounds_fair.checked === true) {
+         condition_text.innerHTML = "Fair";
+         condition_text.className = "orange";
+         }
+      	 
+         if (screen_broken.checked === true || bezel_broken.checked === true || sounds_broken.checked === true || wifis_broken.checked === true || waters_broken.checked === true || buttons_broken.checked === true || chargins_broken.checked === true) {
+         condition_text.innerHTML = "Broken";
+         condition_text.className = "red";
+         }
+  	}
+  
+  function reset() {
+    screen_no_wear.checked = true;
+  	bezel_no_wear.checked = true;
+  	sounds_perfect.checked = true;
+  	wifis_perfect.checked = true;
+  	waters_perfect.checked = true;
+  	buttons_perfect.checked = true;
+  	chargins_perfect.checked = true;
+    
+    screen_moderate_wear.checked = false;
+    screen_heavy_wear.checked = false;
+    screen_broken.checked = false;
+    
+    bezel_moderate_wear.checked = false;
+    bezel_heavy_wear.checked = false;
+    bezel_broken.checked = false;
+    
+    sounds_fair.checked = false;
+    sounds_broken.checked = false;
+    
+    wifis_broken.checked = false;
+    
+    waters_broken.checked = false;
+    
+    buttons_broken.checked = false;
+    
+    chargins_broken.checked = false;
+    updatecondition();
+  }
+  
+  function screenperfect() {
+    screen_moderate_wear.checked = false;
+    screen_heavy_wear.checked = false;
+    screen_broken.checked = false;
+    updatecondition();
+  }
+  function screenmoderate() {
+    screen_no_wear.checked = false;
+    screen_heavy_wear.checked = false;
+    screen_broken.checked = false;
+    updatecondition();
+  }
+  function screenfair() {
+    screen_no_wear.checked = false;
+    screen_moderate_wear.checked = false;
+    screen_broken.checked = false;
+    updatecondition();
+  }
+  function screenbroken() {
+    screen_no_wear.checked = false;
+    screen_moderate_wear.checked = false;
+    screen_heavy_wear.checked = false;
+    updatecondition();
+  }
+  
+  function bezelperfect() {
+    bezel_moderate_wear.checked = false;
+    bezel_heavy_wear.checked = false;
+    bezel_broken.checked = false;
+    updatecondition();
+  }
+  function bezelmoderate() {
+    bezel_no_wear.checked = false;
+    bezel_heavy_wear.checked = false;
+    bezel_broken.checked = false;
+    updatecondition();
+  }
+  function bezelfair() {
+    bezel_no_wear.checked = false;
+    bezel_moderate_wear.checked = false;
+    bezel_broken.checked = false;
+    updatecondition();
+  }
+  function bezelbroken() {
+    bezel_no_wear.checked = false;
+    bezel_moderate_wear.checked = false;
+    bezel_heavy_wear.checked = false;
+    updatecondition();
+  }
+  
+  function soundsperfect() {
+    sounds_fair.checked = false;
+    sounds_broken.checked = false;
+    updatecondition();
+  }
+  function soundsfair() {
+    sounds_perfect.checked = false;
+    sounds_broken.checked = false;
+    updatecondition();
+  }
+  function soundsbroken() {
+    sounds_perfect.checked = false;
+    sounds_fair.checked = false;
+    updatecondition();
+  }
+  
+  function wifisperfect() {
+    wifis_broken.checked = false;
+    updatecondition();
+  }
+  function wifisbroken() {
+    wifis_perfect.checked = false;
+    updatecondition();
+  }
+  
+  function watersperfect() {
+    waters_broken.checked = false;
+    updatecondition();
+  }
+  function watersbroken() {
+    waters_perfect.checked = false;
+    updatecondition();
+  }
+  
+  function buttonsperfect() {
+    buttons_broken.checked = false;
+    updatecondition();
+  }
+  function buttonsbroken() {
+    buttons_perfect.checked = false;
+    updatecondition();
+  }
+  
+  function charginsperfect() {
+    chargins_broken.checked = false;
+    updatecondition();
+  }
+  function charginsbroken() {
+    chargins_perfect.checked = false;
+    updatecondition();
+  }
+  
+  updatecondition();
+</script>
